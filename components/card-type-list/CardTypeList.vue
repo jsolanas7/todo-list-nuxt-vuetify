@@ -1,13 +1,13 @@
 
 <template>
-  <v-card height="80vh" elevation="2">
+  <v-card height="90vh" elevation="2">
       <v-card-title>
           {{title}}: {{items.length}}
       </v-card-title>
       <v-divider></v-divider>
-      <v-card-text>
-          <template v-for="item in items">
-              <card :key="item" :item="item">
+      <v-card-text class="cardsContainer">
+          <template v-for="item in items" >
+              <card class="mt-2" :key="item" :item="item">
               </card>
           </template>
       </v-card-text>
@@ -26,7 +26,10 @@ export default class OLoginBox extends Vue {
 </script>
 
 <style>
-
+.cardsContainer{
+    max-height: 80vh;
+    overflow-y: auto;
+}
 </style>
 
 

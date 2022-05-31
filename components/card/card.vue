@@ -1,11 +1,11 @@
 
 <template>
-  <v-card class="card-todo" :style="'border-color:'+itemColor.background" elevation="2">
+  <v-card class="card-todo" :style="'border-color:'+itemColor.background+'!important'" elevation="2">
       <v-card-title>{{item.title}}</v-card-title>
       <v-card-text>{{ item.description }}</v-card-text>
       <v-card-actions class="pt-0 pb-0">
             <span>
-                {{item.date.toString("dd/MM/yyyy")}}
+                {{formatDate(item.date)}}
             </span>
             <v-spacer></v-spacer>
         <v-btn icon>
@@ -21,12 +21,19 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import {TodoItemModel} from "../todo-list/models/TodoItemModel"
+import {DateHelper} from "../helpers/DateHelper"
 @Component
 export default class OLoginBox extends Vue {
   @Prop({ type: Object, required: true }) item!: TodoItemModel;
 
     created(){
         this.getRandomColor();
+    }
+
+    formatDate(date: Date){
+        const dateHelper = new DateHelper();
+        return dateHelper.getDateWithFormat(date.toString());
+
     }
      colors: object[] = [
     {background: '#b8d8d8', font: '#506568'},

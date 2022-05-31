@@ -1,6 +1,6 @@
 <template>
   <v-app>
-      <v-container style="width:25%">
+      <v-container>
         <Nuxt />
       </v-container>
   </v-app>
