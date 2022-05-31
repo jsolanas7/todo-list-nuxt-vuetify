@@ -77,7 +77,7 @@ export default class CreateCard extends Vue {
                title: this.title,
                status: this.status
            };
-           createCardService.update(this.todoItem!);
+           createCardService.update(item);
        }else{
            const guidHelper = new GuidHelper();
            const item: TodoItemModel = {
