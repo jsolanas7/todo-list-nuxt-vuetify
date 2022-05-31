@@ -11,7 +11,7 @@
         </v-col>
         <template v-for="item in cardTypes">
              <v-col :key="item.id" cols="12" md="4">
-              <card-type-list v-on:onEdit="onEdit" :title="item.title" :items="getItems(item.id)">
+              <card-type-list v-on:onEdit="onEdit" :title="item.title" :items="getItems(item.type)">
         </card-type-list>
         </v-col>
         </template>
