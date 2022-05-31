@@ -8,10 +8,10 @@
                 {{formatDate(item.date)}}
             </span>
             <v-spacer></v-spacer>
-        <v-btn icon>
+        <v-btn icon @click="onEdit">
                 <v-icon>mdi-pencil</v-icon>
         </v-btn>
-         <v-btn icon>
+         <v-btn icon @click="onDelete">
                 <v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-card-actions>
@@ -21,7 +21,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import {TodoItemModel} from "../todo-list/models/TodoItemModel"
-import {DateHelper} from "../helpers/DateHelper"
+import {DateHelper} from "../helpers/DateHelper";
 @Component
 export default class OLoginBox extends Vue {
   @Prop({ type: Object, required: true }) item!: TodoItemModel;
@@ -53,6 +53,14 @@ export default class OLoginBox extends Vue {
     this.itemColor =  this.colors[random];
     debugger;
 }
+
+    onDelete(){
+        this.$emit("onDelete", this.item.id);
+    }
+
+      onEdit(){
+        this.$emit("onEdit", this.item.id);
+    }
 }
 </script>
 
