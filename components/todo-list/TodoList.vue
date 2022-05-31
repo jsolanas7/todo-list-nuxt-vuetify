@@ -45,6 +45,8 @@ export default class OLoginBox extends Vue {
     }
     onSave(){
         this.dialogActivated = false;
+        this.isEdit = false;
+        this.id = "";
     }
 
     onEdit(id:string){
